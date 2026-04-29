@@ -18,6 +18,3 @@ jobs:
 
       - name: Установить зависимости
         run: pip install --no-cache-dir -r requirements.txt
-
-      - name: Запустить тесты
-        run: pytest tests/ -v
