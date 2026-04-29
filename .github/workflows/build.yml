@@ -1,0 +1,23 @@
+name: Build and Test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    container:
+      image: python:3.12-slim
+
+    steps:
+      - name: Получить код репозитория
+        uses: actions/checkout@v4
+
+      - name: Установить зависимости
+        run: pip install --no-cache-dir -r requirements.txt
+
+      - name: Запустить тесты
+        run: pytest tests/ -v
