@@ -41,7 +41,7 @@ def setup_logger() -> logging.Logger:
         console_handler.setFormatter(JsonFormatter())
         logger.addHandler(console_handler)
 
-        logstash_handler = TCPLogstashHandler(host="host.docker.internal", port=5044)
+        logstash_handler = TCPLogstashHandler(host="logstash", port=5044)
         logstash_handler.setFormatter(JsonFormatter())
         logger.addHandler(logstash_handler)
 
